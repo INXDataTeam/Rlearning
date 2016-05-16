@@ -1,0 +1,9 @@
+## R Run test for randomness
+#install.packages("tseries")
+library(tseries)
+s <- sample(c(0,1),100,replace = T)
+runs.test(as.factor(s))
+s <- c(0,0,0,0,1,1,1,0,0,0)
+runs.test(as.factor(s))
+s <- c(0,0,0,0,1,1,1,1,1,0,0,0)
+runs.test(as.factor(s))
