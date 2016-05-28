@@ -85,3 +85,23 @@ sum(diag(table.rf)/sum(table.rf))
 (rf.pred=predict(iris.rf,newdata=iris.test))
 (table.test=table(Species=species.test,Predicted=rf.pred))
 sum(diag(table.test)/sum(table.test))
+
+
+#####  Variance & Correlation Analysis
+
+iris_col_mean <-apply(iris[,1:4],2,mean)
+
+coll <- c("red","green","blue","orange")
+
+for (i in 1:4) {
+  res <- iris[,i]-iris_col_mean[i]
+  if (i == 1) {
+    plot(res,pch=i,col=coll[i])
+    abline(h=0)
+  }
+  points(res,pch=i,col=coll[i])
+  text((i)*20,2,paste(colnames(iris[i]),coll[i],sep = ":"),cex = 0.5)
+} 
+
+
+####
